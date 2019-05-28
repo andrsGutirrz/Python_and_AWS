@@ -68,7 +68,7 @@ def actionInstance(instanceId,action='stop'):
     if instanceId is not None:
         try:
             #Calls action method
-            getattr(query.getInstance(instanceId), action)
+            getattr(query.getInstance(instanceId), action)()
         except Exception:
             print('Error handling instance id')
     else:
@@ -83,4 +83,6 @@ if __name__ == '__main__':
     #stopInstance('i-05ded5ea6de50a579')
     """Start instance"""
     #startInstance('i-05ded5ea6de50a579')
+    """Stop using generic function"""
+    actionInstance('i-05ded5ea6de50a579','start')
     pass
